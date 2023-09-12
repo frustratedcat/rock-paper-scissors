@@ -57,10 +57,12 @@ const playRound = function (playerSelection, computerSelection) {
 
 const game = function () {
   let i = 5;
+  let round = 1;
   while (i > 0) {
-    console.log(playRound());
+    console.log(`Round ${round}: ${playRound()}`);
     console.log(`Your Score: ${playerScore}\nComputer Score: ${computerScore}`);
     i--;
+    round++;
   }
 
   if (playerScore > computerScore) {
