@@ -56,16 +56,12 @@ const playRound = function (playerSelection, computerSelection) {
 };
 
 const game = function () {
-  console.log(playRound());
-  console.log(`Your Score: ${playerScore}\nComputer Score: ${computerScore}`);
-  console.log(playRound());
-  console.log(`Your Score: ${playerScore}\nComputer Score: ${computerScore}`);
-  console.log(playRound());
-  console.log(`Your Score: ${playerScore}\nComputer Score: ${computerScore}`);
-  console.log(playRound());
-  console.log(`Your Score: ${playerScore}\nComputer Score: ${computerScore}`);
-  console.log(playRound());
-  console.log(`Your Score: ${playerScore}\nComputer Score: ${computerScore}`);
+  let i = 5;
+  while (i > 0) {
+    console.log(playRound());
+    console.log(`Your Score: ${playerScore}\nComputer Score: ${computerScore}`);
+    i--;
+  }
 
   if (playerScore > computerScore) {
     console.log(
