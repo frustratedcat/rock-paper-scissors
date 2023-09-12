@@ -14,6 +14,9 @@ const getComputerChoice = function (min = 1, max = 3) {
   }
 };
 
+let playerScore = 0;
+let computerScore = 0;
+
 const playRound = function (playerSelection, computerSelection) {
   playerSelection = prompt(
     'Choose "Rock" "Paper" or "Scissors"> '
@@ -23,14 +26,18 @@ const playRound = function (playerSelection, computerSelection) {
   if (playerSelection === "rock" && computerSelection === "rock") {
     return `Draw, both chose ${playerSelection}`;
   } else if (playerSelection === "rock" && computerSelection === "paper") {
+    computerScore++;
     return `You lose, ${computerSelection} beats ${playerSelection}`;
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
+    playerScore++;
     return `You win, ${playerSelection} beats ${computerSelection}`;
   } else if (playerSelection === "paper" && computerSelection === "paper") {
     return `Draw, both chose ${playerSelection}`;
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
+    computerScore++;
     return `You lose, ${computerSelection} beats ${playerSelection}`;
   } else if (playerSelection === "paper" && computerSelection === "rock") {
+    playerScore++;
     return `You win, ${playerSelection} beats ${computerSelection}`;
   } else if (
     playerSelection === "scissors" &&
@@ -38,8 +45,10 @@ const playRound = function (playerSelection, computerSelection) {
   ) {
     return `Draw, both chose ${playerSelection}`;
   } else if (playerSelection === "scissors" && computerSelection === "rock") {
+    computerScore++;
     return `You lose, ${computerSelection} beats ${playerSelection}`;
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
+    playerScore++;
     return `You win, ${playerSelection} beats ${computerSelection}`;
   } else {
     return `${playerSelection} is not a valid choice`;
@@ -48,10 +57,29 @@ const playRound = function (playerSelection, computerSelection) {
 
 const game = function () {
   console.log(playRound());
+  console.log(`Your Score: ${playerScore}\nComputer Score: ${computerScore}`);
   console.log(playRound());
+  console.log(`Your Score: ${playerScore}\nComputer Score: ${computerScore}`);
   console.log(playRound());
+  console.log(`Your Score: ${playerScore}\nComputer Score: ${computerScore}`);
   console.log(playRound());
+  console.log(`Your Score: ${playerScore}\nComputer Score: ${computerScore}`);
   console.log(playRound());
+  console.log(`Your Score: ${playerScore}\nComputer Score: ${computerScore}`);
+
+  if (playerScore > computerScore) {
+    console.log(
+      `The Final Score is ${playerScore} to ${computerScore}. You Win!!!`
+    );
+  } else if (playerScore < computerScore) {
+    console.log(
+      `The Final Score is ${playerScore} to ${computerScore}. You Lose!!!`
+    );
+  } else {
+    console.log(
+      `The Final Score is ${playerScore} to ${computerScore}. Draw!!!`
+    );
+  }
 };
 
 game();
