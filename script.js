@@ -16,6 +16,7 @@ const getComputerChoice = function (min = 1, max = 3) {
 
 let playerScore = 0;
 let computerScore = 0;
+let result = document.querySelector(".result");
 
 const playRound = function (playerSelection, computerSelection) {
   playerSelection = function (type, selector, callback) {
@@ -27,10 +28,13 @@ const playRound = function (playerSelection, computerSelection) {
   playerSelection("click", ".btn", (e) => {
     if (e.classList[1] === "btn-rock") {
       console.log("rock");
+      result.textContent = "rock";
     } else if (e.classList[1] === "btn-paper") {
       console.log("paper");
+      result.textContent = "paper";
     } else if (e.classList[1] === "btn-scissors") {
       console.log("scissors");
+      result.textContent = "scissors";
     }
   });
 
