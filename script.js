@@ -18,9 +18,22 @@ let playerScore = 0;
 let computerScore = 0;
 
 const playRound = function (playerSelection, computerSelection) {
-  playerSelection = prompt(
-    'Choose "Rock" "Paper" or "Scissors"> '
-  ).toLowerCase();
+  playerSelection = function (type, selector, callback) {
+    document.addEventListener(type, (e) => {
+      if (e.target.matches(selector)) callback(e.target);
+    });
+  };
+
+  playerSelection("click", ".btn", (e) => {
+    if (e.classList[1] === "btn-rock") {
+      console.log("rock");
+    } else if (e.classList[1] === "btn-paper") {
+      console.log("paper");
+    } else if (e.classList[1] === "btn-scissors") {
+      console.log("scissors");
+    }
+  });
+
   computerSelection = getComputerChoice();
 
   if (playerSelection === "rock" && computerSelection === "rock") {
@@ -57,7 +70,7 @@ const playRound = function (playerSelection, computerSelection) {
 
 const game = function () {
   let round = 1;
-  while (true) {
+  while (playerScore < 5 || computerScore < 5) {
     console.log(`Round ${round}: ${playRound()}`);
     console.log(`Your Score: ${playerScore}\nComputer Score: ${computerScore}`);
     round++;
@@ -78,4 +91,5 @@ const game = function () {
   }
 };
 
-game();
+// game();
+playRound();
