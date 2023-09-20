@@ -23,6 +23,18 @@ let computerScoreResult = document.querySelector(".computer-score");
 let playerResult = document.querySelector(".player-result");
 let computerResult = document.querySelector(".computer-result");
 
+const computerChoice = function (computerSelection) {
+  computerSelection = getComputerChoice();
+  if (computerSelection === "rock") {
+    computerResult.textContent = "rock";
+  } else if (computerSelection === "paper") {
+    computerResult.textContent = "paper";
+  } else {
+    computerResult.textContent = "scissors";
+  }
+  return computerSelection;
+};
+
 const playRound = function (playerSelection, computerSelection) {
   playerSelection = function (type, selector, callback) {
     document.addEventListener(type, (e) => {
@@ -30,69 +42,57 @@ const playRound = function (playerSelection, computerSelection) {
     });
   };
 
-  const computerChoice = function () {
-    computerSelection = getComputerChoice();
-    if (computerSelection === "rock") {
-      computerResult.textContent = "rock";
-    } else if (computerSelection === "paper") {
-      computerResult.textContent = "paper";
-    } else {
-      computerResult.textContent = "scissors";
-    }
-  };
-
   playerSelection("click", ".btn", (e) => {
     if (e.classList[1] === "btn-rock") {
       playerResult.textContent = "rock";
-      computerChoice();
+      computerChoice(computerSelection);
     } else if (e.classList[1] === "btn-paper") {
       playerResult.textContent = "paper";
-      computerChoice();
+      computerChoice(computerSelection);
     } else if (e.classList[1] === "btn-scissors") {
       playerResult.textContent = "scissors";
-      computerChoice();
+      computerChoice(computerSelection);
     }
 
-    if (playerResult.textContent === "rock" && computerSelection === "paper") {
+    if (playerResult.textContent === "rock" && computerChoice() === "paper") {
       computerScore++;
     } else if (
       playerResult.textContent === "rock" &&
-      computerSelection === "scissors"
+      computerChoice(computerSelection) === "scissors"
     ) {
       playerScore++;
     } else if (
       playerResult.textContent === "paper" &&
-      computerSelection === "rock"
+      computerChoice(computerSelection) === "rock"
     ) {
       playerScore++;
     } else if (
       playerResult.textContent === "paper" &&
-      computerSelection === "scissors"
+      computerChoice(computerSelection) === "scissors"
     ) {
       computerScore++;
     } else if (
       playerResult.textContent === "scissors" &&
-      computerSelection === "rock"
+      computerChoice(computerSelection) === "rock"
     ) {
       computerScore++;
     } else if (
       playerResult.textContent === "scissors" &&
-      computerSelection === "paper"
+      computerChoice(computerSelection) === "paper"
     ) {
       playerScore++;
     }
 
     playerScoreResult.textContent = playerScore;
     computerScoreResult.textContent = computerScore;
+    console.log(playerScore, computerScore);
   });
+  console.log(playerScore, computerScore);
 };
 
 const game = function () {
-  let round = 1;
   while (playerScore < 5 || computerScore < 5) {
-    console.log(`Round ${round}: ${playRound()}`);
-    console.log(`Your Score: ${playerScore}\nComputer Score: ${computerScore}`);
-    round++;
+    playRound();
   }
 
   if (playerScore > computerScore) {
@@ -111,4 +111,5 @@ const game = function () {
 };
 
 // game();
+console.log(playerScore, computerScore);
 playRound();
