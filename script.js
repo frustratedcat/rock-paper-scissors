@@ -15,8 +15,13 @@ const getComputerChoice = function (min = 1, max = 3) {
 };
 
 let playerScore = 0;
+let playerScoreResult = document.querySelector(".player-score");
+
 let computerScore = 0;
-let result = document.querySelector(".result");
+let computerScoreResult = document.querySelector(".computer-score");
+
+let playerResult = document.querySelector(".player-result");
+let computerResult = document.querySelector(".computer-result");
 
 const playRound = function (playerSelection, computerSelection) {
   playerSelection = function (type, selector, callback) {
@@ -25,51 +30,61 @@ const playRound = function (playerSelection, computerSelection) {
     });
   };
 
+  const computerChoice = function () {
+    computerSelection = getComputerChoice();
+    if (computerSelection === "rock") {
+      computerResult.textContent = "rock";
+    } else if (computerSelection === "paper") {
+      computerResult.textContent = "paper";
+    } else {
+      computerResult.textContent = "scissors";
+    }
+  };
+
   playerSelection("click", ".btn", (e) => {
     if (e.classList[1] === "btn-rock") {
-      console.log("rock");
-      result.textContent = "rock";
+      playerResult.textContent = "rock";
+      computerChoice();
     } else if (e.classList[1] === "btn-paper") {
-      console.log("paper");
-      result.textContent = "paper";
+      playerResult.textContent = "paper";
+      computerChoice();
     } else if (e.classList[1] === "btn-scissors") {
-      console.log("scissors");
-      result.textContent = "scissors";
+      playerResult.textContent = "scissors";
+      computerChoice();
     }
+
+    if (playerResult.textContent === "rock" && computerSelection === "paper") {
+      computerScore++;
+    } else if (
+      playerResult.textContent === "rock" &&
+      computerSelection === "scissors"
+    ) {
+      playerScore++;
+    } else if (
+      playerResult.textContent === "paper" &&
+      computerSelection === "rock"
+    ) {
+      playerScore++;
+    } else if (
+      playerResult.textContent === "paper" &&
+      computerSelection === "scissors"
+    ) {
+      computerScore++;
+    } else if (
+      playerResult.textContent === "scissors" &&
+      computerSelection === "rock"
+    ) {
+      computerScore++;
+    } else if (
+      playerResult.textContent === "scissors" &&
+      computerSelection === "paper"
+    ) {
+      playerScore++;
+    }
+
+    playerScoreResult.textContent = playerScore;
+    computerScoreResult.textContent = computerScore;
   });
-
-  computerSelection = getComputerChoice();
-
-  if (playerSelection === "rock" && computerSelection === "rock") {
-    return `Draw, both chose ${playerSelection}`;
-  } else if (playerSelection === "rock" && computerSelection === "paper") {
-    computerScore++;
-    return `You lose, ${computerSelection} beats ${playerSelection}`;
-  } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    playerScore++;
-    return `You win, ${playerSelection} beats ${computerSelection}`;
-  } else if (playerSelection === "paper" && computerSelection === "paper") {
-    return `Draw, both chose ${playerSelection}`;
-  } else if (playerSelection === "paper" && computerSelection === "scissors") {
-    computerScore++;
-    return `You lose, ${computerSelection} beats ${playerSelection}`;
-  } else if (playerSelection === "paper" && computerSelection === "rock") {
-    playerScore++;
-    return `You win, ${playerSelection} beats ${computerSelection}`;
-  } else if (
-    playerSelection === "scissors" &&
-    computerSelection === "scissors"
-  ) {
-    return `Draw, both chose ${playerSelection}`;
-  } else if (playerSelection === "scissors" && computerSelection === "rock") {
-    computerScore++;
-    return `You lose, ${computerSelection} beats ${playerSelection}`;
-  } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    playerScore++;
-    return `You win, ${playerSelection} beats ${computerSelection}`;
-  } else {
-    return `${playerSelection} is not a valid choice`;
-  }
 };
 
 const game = function () {
