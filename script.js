@@ -41,12 +41,13 @@ const getPlayerChoice = function () {
   document.addEventListener("click", function (e) {
     if (e.target.matches(".btn")) {
       console.log(e.target.classList[1]);
-      return e.target.classList[1];
     }
   });
 };
 
-const showPlayerChoice = function () {};
+const showPlayerChoice = function () {
+  getPlayerChoice();
+};
 
 const playRound = function () {
   showPlayerChoice();
