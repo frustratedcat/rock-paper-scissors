@@ -9,6 +9,9 @@ let playerScoreResult = document.querySelector(".player-score");
 let computerScore = 0;
 let computerScoreResult = document.querySelector(".computer-score");
 
+let clicked = false;
+let buttons = document.querySelectorAll(".btn");
+
 const getComputerChoice = function (min = 1, max = 3) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -40,22 +43,33 @@ const showComputerChoice = function (computerSelection) {
 const getPlayerChoice = function () {
   document.addEventListener("click", function (e) {
     if (e.target.matches(".btn")) {
-      console.log(e.target.classList[1]);
+      if (e.target.classList[1] === "btn-rock") {
+        playerResult.textContent = "rock";
+      } else if (e.target.classList[1] === "btn-paper") {
+        playerResult.textContent = "paper";
+      } else {
+        playerResult.textContent = "scissors";
+      }
     }
   });
 };
 
 const showPlayerChoice = function () {
   getPlayerChoice();
+
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function () {
+      clicked = true;
+      console.log(clicked);
+      if (clicked === true) {
+        showComputerChoice();
+      }
+    });
+  }
 };
 
-const playRound = function () {
-  showPlayerChoice();
-  showComputerChoice();
-};
+showPlayerChoice();
 
-const game = function () {
-  playRound();
-};
+const playRound = function () {};
 
-game();
+const game = function () {};
