@@ -36,22 +36,25 @@ const showComputerChoice = function (computerSelection) {
   } else {
     computerResult.textContent = "scissors";
   }
-
+  console.log(`computer selection: ${computerSelection}`);
   return computerSelection;
 };
 
 const getPlayerChoice = function () {
-  document.addEventListener("click", function (e) {
-    if (e.target.matches(".btn")) {
-      if (e.target.classList[1] === "btn-rock") {
-        playerResult.textContent = "rock";
-      } else if (e.target.classList[1] === "btn-paper") {
-        playerResult.textContent = "paper";
-      } else {
-        playerResult.textContent = "scissors";
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function (e) {
+      if (e.target.matches(".btn")) {
+        if (e.target.classList[1] === "btn-rock") {
+          playerResult.textContent = "rock";
+        } else if (e.target.classList[1] === "btn-paper") {
+          playerResult.textContent = "paper";
+        } else {
+          playerResult.textContent = "scissors";
+        }
+        console.log(`player selection: ${playerResult.textContent}`);
       }
-    }
-  });
+    });
+  }
 };
 
 const showPlayerChoice = function () {
@@ -60,7 +63,7 @@ const showPlayerChoice = function () {
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function () {
       clicked = true;
-      console.log(clicked);
+
       if (clicked === true) {
         showComputerChoice();
       }
@@ -68,8 +71,79 @@ const showPlayerChoice = function () {
   }
 };
 
-showPlayerChoice();
+const playRound = function () {
+  showPlayerChoice();
 
-const playRound = function () {};
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function () {
+      clicked = true;
 
-const game = function () {};
+      if (
+        playerResult.textContent === "rock" &&
+        computerResult.textContent === "paper"
+      ) {
+        computerScore++;
+        console.log(playerScore, computerScore);
+      } else if (
+        playerResult.textContent === "rock" &&
+        computerResult.textContent === "scissors"
+      ) {
+        playerScore++;
+        console.log(playerScore, computerScore);
+      } else if (
+        playerResult.textContent === "paper" &&
+        computerResult.textContent === "rock"
+      ) {
+        playerScore++;
+        console.log(playerScore, computerScore);
+      } else if (
+        playerResult.textContent === "paper" &&
+        computerResult.textContent === "scissors"
+      ) {
+        computerScore++;
+        console.log(playerScore, computerScore);
+      } else if (
+        playerResult.textContent === "scissors" &&
+        computerResult.textContent === "rock"
+      ) {
+        computerScore++;
+        console.log(playerScore, computerScore);
+      } else if (
+        playerResult.textContent === "scissors" &&
+        computerResult.textContent === "paper"
+      ) {
+        playerScore++;
+        console.log(playerScore, computerScore);
+      } else if (
+        playerResult.textContent === "rock" &&
+        computerResult.textContent === "rock"
+      ) {
+        console.log(playerScore, computerScore);
+      } else if (
+        playerResult.textContent === "paper" &&
+        computerResult.textContent === "paper"
+      ) {
+        console.log(playerScore, computerScore);
+      } else if (
+        playerResult.textContent === "scissors" &&
+        computerResult.textContent === "scissors"
+      ) {
+        console.log(playerScore, computerScore);
+      }
+      playerScoreResult.textContent = playerScore;
+      computerScoreResult.textContent = computerScore;
+    });
+  }
+};
+
+const game = function () {
+  playRound();
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function () {
+      clicked = true;
+      console.log("clicked");
+    });
+  }
+};
+
+game();
