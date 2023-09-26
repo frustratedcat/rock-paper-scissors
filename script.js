@@ -1,16 +1,24 @@
 "use strict";
 
-let playerResult = document.querySelector(".player-result");
-let computerResult = document.querySelector(".computer-result");
+const playerResult = document.querySelector(".player-result");
+const computerResult = document.querySelector(".computer-result");
 
 let playerScore = 0;
-let playerScoreResult = document.querySelector(".player-score");
+const playerScoreResult = document.querySelector(".player-score");
 
 let computerScore = 0;
-let computerScoreResult = document.querySelector(".computer-score");
+const computerScoreResult = document.querySelector(".computer-score");
 
 let clicked = false;
+
 let buttons = document.querySelectorAll(".btn");
+const rockButton = document.querySelector(".btn-rock");
+const paperButton = document.querySelector(".btn-paper");
+const scissorsButton = document.querySelector(".btn-scissors");
+
+const playAgain = document.querySelector(".play-again");
+const playAgainyes = document.querySelector(".play-again-yes");
+const playAgainNo = document.querySelector(".play-again-no");
 
 const getComputerChoice = function (min = 1, max = 3) {
   min = Math.ceil(min);
@@ -36,7 +44,7 @@ const showComputerChoice = function (computerSelection) {
   } else {
     computerResult.textContent = "scissors";
   }
-  console.log(`computer selection: ${computerSelection}`);
+
   return computerSelection;
 };
 
@@ -51,7 +59,6 @@ const getPlayerChoice = function () {
         } else {
           playerResult.textContent = "scissors";
         }
-        console.log(`player selection: ${playerResult.textContent}`);
       }
     });
   }
@@ -83,52 +90,43 @@ const playRound = function () {
         computerResult.textContent === "paper"
       ) {
         computerScore++;
-        console.log(playerScore, computerScore);
       } else if (
         playerResult.textContent === "rock" &&
         computerResult.textContent === "scissors"
       ) {
         playerScore++;
-        console.log(playerScore, computerScore);
       } else if (
         playerResult.textContent === "paper" &&
         computerResult.textContent === "rock"
       ) {
         playerScore++;
-        console.log(playerScore, computerScore);
       } else if (
         playerResult.textContent === "paper" &&
         computerResult.textContent === "scissors"
       ) {
         computerScore++;
-        console.log(playerScore, computerScore);
       } else if (
         playerResult.textContent === "scissors" &&
         computerResult.textContent === "rock"
       ) {
         computerScore++;
-        console.log(playerScore, computerScore);
       } else if (
         playerResult.textContent === "scissors" &&
         computerResult.textContent === "paper"
       ) {
         playerScore++;
-        console.log(playerScore, computerScore);
       } else if (
         playerResult.textContent === "rock" &&
         computerResult.textContent === "rock"
       ) {
-        console.log(playerScore, computerScore);
       } else if (
         playerResult.textContent === "paper" &&
         computerResult.textContent === "paper"
       ) {
-        console.log(playerScore, computerScore);
       } else if (
         playerResult.textContent === "scissors" &&
         computerResult.textContent === "scissors"
       ) {
-        console.log(playerScore, computerScore);
       }
       playerScoreResult.textContent = playerScore;
       computerScoreResult.textContent = computerScore;
@@ -138,10 +136,24 @@ const playRound = function () {
 
 const game = function () {
   playRound();
+
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function () {
       clicked = true;
-      console.log("clicked");
+
+      if (playerScore === 5 || computerScore === 5) {
+        rockButton.disabled = true;
+        paperButton.disabled = true;
+        scissorsButton.disabled = true;
+
+        if (playerScore > computerScore) {
+          console.log("you win");
+        } else {
+          console.log("computer wins");
+        }
+
+        playAgain.setAttribute("style", "display: contents");
+      }
     });
   }
 };
