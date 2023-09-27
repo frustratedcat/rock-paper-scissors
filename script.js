@@ -12,13 +12,18 @@ const computerScoreResult = document.querySelector(".computer-score");
 let clicked = false;
 
 let buttons = document.querySelectorAll(".btn");
+const btnContainer = document.querySelector(".btn-container");
 const rockButton = document.querySelector(".btn-rock");
 const paperButton = document.querySelector(".btn-paper");
 const scissorsButton = document.querySelector(".btn-scissors");
 
+let playAgainButtons = document.querySelectorAll(".play-buttons");
 const playAgain = document.querySelector(".play-again");
 const playAgainyes = document.querySelector(".play-again-yes");
 const playAgainNo = document.querySelector(".play-again-no");
+
+const showWinnerContainer = document.querySelector(".show-winner-container");
+const showWinner = document.querySelector(".show-winner");
 
 const getComputerChoice = function (min = 1, max = 3) {
   min = Math.ceil(min);
@@ -134,26 +139,32 @@ const playRound = function () {
   }
 };
 
+const chooseWinner = function () {
+  if (playerScore === 5 || computerScore === 5) {
+    rockButton.disabled = true;
+    paperButton.disabled = true;
+    scissorsButton.disabled = true;
+    btnContainer.setAttribute("style", "display: none");
+
+    showWinnerContainer.setAttribute("style", "display: contents");
+
+    if (playerScore > computerScore) {
+      showWinner.textContent = "You Win!!!";
+    } else {
+      showWinner.textContent = "Computer Wins!!!";
+    }
+
+    playAgain.setAttribute("style", "display: contents");
+  }
+};
+
 const game = function () {
   playRound();
 
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function () {
       clicked = true;
-
-      if (playerScore === 5 || computerScore === 5) {
-        rockButton.disabled = true;
-        paperButton.disabled = true;
-        scissorsButton.disabled = true;
-
-        if (playerScore > computerScore) {
-          console.log("you win");
-        } else {
-          console.log("computer wins");
-        }
-
-        playAgain.setAttribute("style", "display: contents");
-      }
+      chooseWinner();
     });
   }
 };
