@@ -1,5 +1,11 @@
 "use strict";
 
+const introSection = document.querySelector(".intro-section");
+const introContainer = document.querySelector(".intro-container");
+const introButton = document.querySelector(".intro-button");
+
+const bodySection = document.querySelector(".body-section");
+
 const choiceContainer = document.querySelector(".choice-container");
 
 const playerResult = document.querySelector(".player-result");
@@ -31,6 +37,8 @@ const showWinner = document.querySelector(".show-winner");
 
 const farewellContainer = document.querySelector(".farewell-container");
 const farwell = document.querySelector(".farwell");
+
+const showGame = document.querySelector(".show-game");
 
 const getComputerChoice = function (min = 1, max = 3) {
   min = Math.ceil(min);
@@ -148,9 +156,6 @@ const playRound = function () {
 
 const chooseWinner = function () {
   if (playerScore === 5 || computerScore === 5) {
-    rockButton.disabled = true;
-    paperButton.disabled = true;
-    scissorsButton.disabled = true;
     btnContainer.setAttribute("style", "display: none");
 
     showWinnerContainer.setAttribute("style", "display: contents");
@@ -162,6 +167,15 @@ const chooseWinner = function () {
     }
 
     playAgain.setAttribute("style", "display: contents");
+    showGame.setAttribute("style", "display: none");
+
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreResult.textContent = playerScore;
+    computerScoreResult.textContent = computerScore;
+
+    playerResult.textContent = "Awaiting Player Choice";
+    computerResult.textContent = "Awaiting Computer Choice";
   }
 };
 
@@ -170,28 +184,21 @@ const playGameAgain = function () {
     playAgainButtons[i].addEventListener("click", function (e) {
       if (e.target.matches(".play-buttons")) {
         if (e.target.classList[1] === "play-again-yes") {
-          playerScore = 0;
-          computerScore = 0;
-          playerScoreResult.textContent = playerScore;
-          computerScoreResult.textContent = computerScore;
-
-          playerResult.textContent = "Awaiting Player Choice";
-          computerResult.textContent = "Awaiting Computer Choice";
-
-          rockButton.disabled = false;
-          paperButton.disabled = false;
-          scissorsButton.disabled = false;
           btnContainer.setAttribute("style", "display: contents");
 
           showWinnerContainer.setAttribute("style", "display: none");
 
           playAgain.setAttribute("style", "display: none");
+
+          showGame.setAttribute("style", "display: contents ");
         } else if (e.target.classList[1] === "play-again-no") {
-          farewellContainer.setAttribute("style", "display: contents");
-          playAgain.setAttribute("style", "display: none");
           showWinnerContainer.setAttribute("style", "display: none");
-          choiceContainer.setAttribute("style", "display: none");
-          scoreContainer.setAttribute("style", "display: none");
+          playAgain.setAttribute("style", "display: none");
+          btnContainer.setAttribute("style", "display: content");
+          showGame.setAttribute("style", "display: contents ");
+
+          introSection.setAttribute("style", "display: contents");
+          bodySection.setAttribute("style", "display: none");
         }
       }
     });
@@ -199,6 +206,11 @@ const playGameAgain = function () {
 };
 
 const game = function () {
+  introButton.addEventListener("click", function () {
+    introSection.setAttribute("style", "display: none");
+    bodySection.setAttribute("style", "display: contents");
+  });
+
   playRound();
 
   for (let i = 0; i < buttons.length; i++) {
