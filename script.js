@@ -19,8 +19,6 @@ const playerScoreResult = document.querySelector(".player-score");
 let computerScore = 0;
 const computerScoreResult = document.querySelector(".computer-score");
 
-let clicked = false;
-
 let buttons = document.querySelectorAll(".btn");
 const btnContainer = document.querySelector(".btn-container");
 const rockButton = document.querySelector(".btn-rock");
@@ -86,11 +84,7 @@ const showPlayerChoice = function () {
 
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function () {
-      clicked = true;
-
-      if (clicked === true) {
-        showComputerChoice();
-      }
+      showComputerChoice();
     });
   }
 };
@@ -100,8 +94,6 @@ const playRound = function () {
 
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function () {
-      clicked = true;
-
       if (
         playerResult.textContent === "rock" &&
         computerResult.textContent === "paper"
@@ -212,7 +204,6 @@ const game = function () {
 
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function () {
-      clicked = true;
       chooseWinner();
       playGameAgain();
     });
