@@ -1,7 +1,11 @@
 "use strict";
 
+const choiceContainer = document.querySelector(".choice-container");
+
 const playerResult = document.querySelector(".player-result");
 const computerResult = document.querySelector(".computer-result");
+
+const scoreContainer = document.querySelector(".score-container");
 
 let playerScore = 0;
 const playerScoreResult = document.querySelector(".player-score");
@@ -19,11 +23,14 @@ const scissorsButton = document.querySelector(".btn-scissors");
 
 let playAgainButtons = document.querySelectorAll(".play-buttons");
 const playAgain = document.querySelector(".play-again");
-const playAgainyes = document.querySelector(".play-again-yes");
+const playAgainYes = document.querySelector(".play-again-yes");
 const playAgainNo = document.querySelector(".play-again-no");
 
 const showWinnerContainer = document.querySelector(".show-winner-container");
 const showWinner = document.querySelector(".show-winner");
+
+const farewellContainer = document.querySelector(".farewell-container");
+const farwell = document.querySelector(".farwell");
 
 const getComputerChoice = function (min = 1, max = 3) {
   min = Math.ceil(min);
@@ -158,6 +165,39 @@ const chooseWinner = function () {
   }
 };
 
+const playGameAgain = function () {
+  for (let i = 0; i < playAgainButtons.length; i++) {
+    playAgainButtons[i].addEventListener("click", function (e) {
+      if (e.target.matches(".play-buttons")) {
+        if (e.target.classList[1] === "play-again-yes") {
+          playerScore = 0;
+          computerScore = 0;
+          playerScoreResult.textContent = playerScore;
+          computerScoreResult.textContent = computerScore;
+
+          playerResult.textContent = "Awaiting Player Choice";
+          computerResult.textContent = "Awaiting Computer Choice";
+
+          rockButton.disabled = false;
+          paperButton.disabled = false;
+          scissorsButton.disabled = false;
+          btnContainer.setAttribute("style", "display: contents");
+
+          showWinnerContainer.setAttribute("style", "display: none");
+
+          playAgain.setAttribute("style", "display: none");
+        } else if (e.target.classList[1] === "play-again-no") {
+          farewellContainer.setAttribute("style", "display: contents");
+          playAgain.setAttribute("style", "display: none");
+          showWinnerContainer.setAttribute("style", "display: none");
+          choiceContainer.setAttribute("style", "display: none");
+          scoreContainer.setAttribute("style", "display: none");
+        }
+      }
+    });
+  }
+};
+
 const game = function () {
   playRound();
 
@@ -165,6 +205,7 @@ const game = function () {
     buttons[i].addEventListener("click", function () {
       clicked = true;
       chooseWinner();
+      playGameAgain();
     });
   }
 };
