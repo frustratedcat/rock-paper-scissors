@@ -35,9 +35,6 @@ const playAgainNo = document.querySelector(".play-again-no");
 const showWinnerContainer = document.querySelector(".show-winner-container");
 const showWinner = document.querySelector(".show-winner");
 
-const farewellContainer = document.querySelector(".farewell-container");
-const farwell = document.querySelector(".farwell");
-
 const showGame = document.querySelector(".show-game");
 
 const getComputerChoice = function (min = 1, max = 3) {
