@@ -38,6 +38,17 @@ body {
   font-weight: 500;
 }
 
+.intro-button {
+  font-family: "Pixelify Sans", serif;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 16px;
+  color: white;
+  background-color: blue;
+  border: 1px solid black;
+  border-radius: 100px;
+}
+
 .body-section {
   display: none;
 }
