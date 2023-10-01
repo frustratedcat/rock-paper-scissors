@@ -32,8 +32,12 @@ body {
   font-weight: 700;
 }
 
+.intro-rules {
+  margin: 20px 0;
+}
+
 .intro-p {
-  margin: 20px;
+  margin-bottom: 10px;
   font-size: 30px;
   font-weight: 500;
 }
