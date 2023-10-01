@@ -174,18 +174,14 @@ const playGameAgain = function () {
       if (e.target.matches(".play-buttons")) {
         if (e.target.classList[1] === "play-again-yes") {
           btnContainer.setAttribute("style", "display: contents");
-
           showWinnerContainer.setAttribute("style", "display: none");
-
           playAgain.setAttribute("style", "display: none");
-
           showGame.setAttribute("style", "display: contents ");
         } else if (e.target.classList[1] === "play-again-no") {
           showWinnerContainer.setAttribute("style", "display: none");
           playAgain.setAttribute("style", "display: none");
           btnContainer.setAttribute("style", "display: content");
           showGame.setAttribute("style", "display: contents ");
-
           introSection.setAttribute("style", "display: contents");
           bodySection.setAttribute("style", "display: none");
         }

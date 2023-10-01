@@ -26,48 +26,56 @@
     </section>
 
     <section class="body-section">
-      <div class="btn-container">
-        <h2>Choose Rock, Paper, or Scissors</h2>
-        <button class="btn btn-rock">Rock</button>
-        <button class="btn btn-paper">Paper</button>
-        <button class="btn btn-scissors">Scissors</button>
-      </div>
-
-      <div class="show-winner-container">
-        <h2 class="show-winner"></h2>
-      </div>
-
-      <div class="play-again">
-        <h3>Want to Play Again?</h3>
-        <button class="play-buttons play-again-yes">Yes</button>
-        <button class="play-buttons play-again-no">No</button>
-      </div>
-
-      <div class="show-game">
-        <div class="choice-container">
-          <div class="player-choice-container">
-            <h3>Player Choice</h3>
-            <div class="player-result">Awaiting Player Choice</div>
-          </div>
-
-          <div class="computer-choice-container">
-            <h3>Computer Choice</h3>
-            <div class="computer-result">Awaiting Computer Choice</div>
-          </div>
+      <section class="game-body-section">
+        <div class="btn-container">
+          <h1 class="body-h1">Choose Rock, Paper, or Scissors</h1>
+          <button class="btn btn-rock">Rock</button>
+          <button class="btn btn-paper">Paper</button>
+          <button class="btn btn-scissors">Scissors</button>
         </div>
 
-        <div class="score-container">
-          <h3>Score</h3>
-          <div>
-            <label>Player Score:</label>
-            <span class="player-score">0</span>
+        <div class="show-game">
+          <div class="choice-container">
+            <div class="player-choice-container">
+              <h2 class="body-h2">Player Choice</h2>
+              <div class="player-result">
+                <p class="body-p">Awaiting Player Choice</p>
+              </div>
+            </div>
+
+            <div class="computer-choice-container">
+              <h2 class="body-h2">Computer Choice</h2>
+              <div class="computer-result">
+                <p class="body-p">Awaiting Computer Choice</p>
+              </div>
+            </div>
           </div>
-          <div>
-            <label>Computer Score:</label>
-            <span class="computer-score">0</span>
+
+          <div class="score-container">
+            <h3 class="body-h3">Score</h3>
+            <div class="body-score">
+              <label>Player Score:</label>
+              <span class="player-score">0</span>
+            </div>
+            <div class="body-score">
+              <label>Computer Score:</label>
+              <span class="computer-score">0</span>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <section class="play-again-body-section">
+        <div class="show-winner-container">
+          <h1 class="show-winner"></h1>
+        </div>
+
+        <div class="play-again">
+          <h2>Want to Play Again?</h2>
+          <button class="play-buttons play-again-yes">Yes</button>
+          <button class="play-buttons play-again-no">No</button>
+        </div>
+      </section>
     </section>
   </body>
 </html>
