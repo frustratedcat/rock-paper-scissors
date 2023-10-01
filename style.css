@@ -8,6 +8,24 @@ body {
   font-family: "Pixelify Sans", serif;
 }
 
+.intro-section {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.intro-game {
+  margin: 36px;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.intro-p {
+  margin: 20px;
+  font-size: 30px;
+  font-weight: 500;
+}
+
 .body-section {
   display: none;
 }
