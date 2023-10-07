@@ -52,6 +52,7 @@ body {
   font-family: "Pixelify Sans", serif;
   font-size: 24px;
   font-weight: 700;
+  width: 150px;
   padding: 10px;
   color: white;
   background-color: #1971c2;
@@ -88,6 +89,32 @@ body {
   margin: 0px 0 10px 0;
   font-size: 42px;
   font-weight: 700;
+}
+
+.btn {
+  font-family: "Pixelify Sans", serif;
+  font-size: 24px;
+  font-weight: 700;
+  width: 150px;
+  margin: 10px;
+  padding: 10px;
+  color: white;
+  background-color: #1971c2;
+  border: 2px solid white;
+  border-radius: 100px;
+}
+
+.btn:hover {
+  color: white;
+  background-color: #339af0;
+  border: 2px solid white;
+}
+
+.btn:active {
+  color: #1971c2;
+  background-color: white;
+  border: 2px solid #1971c2;
+  transition: 0.2s;
 }
 
 .body-h2 {
