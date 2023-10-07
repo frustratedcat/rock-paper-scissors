@@ -4,10 +4,16 @@
   margin: 0;
 }
 
-html,
 body {
   font-family: "Pixelify Sans", serif;
   height: 100vh;
+  background-image: linear-gradient(
+    to right bottom,
+    #868e96,
+    #495057,
+    #868e96,
+    #495057
+  );
 }
 
 .flex-container {
@@ -46,11 +52,24 @@ body {
   font-family: "Pixelify Sans", serif;
   font-size: 24px;
   font-weight: 700;
-  padding: 16px;
+  padding: 10px;
   color: white;
-  background-color: blue;
-  border: 2px solid black;
+  background-color: #1971c2;
+  border: 2px solid white;
   border-radius: 100px;
+}
+
+.intro-button:hover {
+  color: white;
+  background-color: #339af0;
+  border: 2px solid white;
+}
+
+.intro-button:active {
+  color: #1971c2;
+  background-color: white;
+  border: 2px solid #1971c2;
+  transition: 0.2s;
 }
 
 .body-section {
