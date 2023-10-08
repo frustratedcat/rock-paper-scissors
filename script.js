@@ -3,14 +3,12 @@
 const introSection = document.querySelector(".intro-section");
 const introContainer = document.querySelector(".intro-container");
 const introButton = document.querySelector(".intro-button");
-
 const bodySection = document.querySelector(".body-section");
+const gameBodySection = document.querySelector(".game-body-section");
 
 const choiceContainer = document.querySelector(".choice-container");
-
 const playerResult = document.querySelector(".player-result");
 const computerResult = document.querySelector(".computer-result");
-
 const scoreContainer = document.querySelector(".score-container");
 
 let playerScore = 0;
@@ -32,7 +30,6 @@ const playAgainNo = document.querySelector(".play-again-no");
 
 const showWinnerContainer = document.querySelector(".show-winner-container");
 const showWinner = document.querySelector(".show-winner");
-
 const showGame = document.querySelector(".show-game");
 
 const getComputerChoice = function (min = 1, max = 3) {
@@ -81,7 +78,6 @@ const getPlayerChoice = function () {
 
 const showPlayerChoice = function () {
   getPlayerChoice();
-
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function () {
       showComputerChoice();
@@ -91,7 +87,6 @@ const showPlayerChoice = function () {
 
 const playRound = function () {
   showPlayerChoice();
-
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function () {
       if (
@@ -145,9 +140,8 @@ const playRound = function () {
 
 const chooseWinner = function () {
   if (playerScore === 5 || computerScore === 5) {
-    btnContainer.setAttribute("style", "display: none");
-
-    showWinnerContainer.setAttribute("style", "display: contents");
+    gameBodySection.classList.remove("show-elements");
+    showWinnerContainer.classList.add("show-elements");
 
     if (playerScore > computerScore) {
       showWinner.textContent = "You Win!!!";
@@ -155,8 +149,7 @@ const chooseWinner = function () {
       showWinner.textContent = "Computer Wins!!!";
     }
 
-    playAgain.setAttribute("style", "display: contents");
-    showGame.setAttribute("style", "display: none");
+    playAgain.classList.add("show-elements");
 
     playerScore = 0;
     computerScore = 0;
@@ -173,17 +166,13 @@ const playGameAgain = function () {
     playAgainButtons[i].addEventListener("click", function (e) {
       if (e.target.matches(".play-buttons")) {
         if (e.target.classList[1] === "play-again-yes") {
-          btnContainer.setAttribute("style", "display: contents");
-          showWinnerContainer.setAttribute("style", "display: none");
-          playAgain.setAttribute("style", "display: none");
-          showGame.setAttribute("style", "display: contents ");
+          gameBodySection.classList.add("show-elements");
+          showWinnerContainer.classList.remove("show-elements");
+          playAgain.classList.remove("show-elements");
         } else if (e.target.classList[1] === "play-again-no") {
-          showWinnerContainer.setAttribute("style", "display: none");
-          playAgain.setAttribute("style", "display: none");
-          btnContainer.setAttribute("style", "display: content");
-          showGame.setAttribute("style", "display: contents ");
-          introSection.setAttribute("style", "display: contents");
-          bodySection.setAttribute("style", "display: none");
+          showWinnerContainer.classList.remove("show-elements");
+          playAgain.classList.remove("show-elements");
+          introSection.classList.add("show-elements");
         }
       }
     });
@@ -192,8 +181,9 @@ const playGameAgain = function () {
 
 const game = function () {
   introButton.addEventListener("click", function () {
-    introSection.setAttribute("style", "display: none");
-    bodySection.setAttribute("style", "display: contents");
+    introSection.classList.add("hide-elements");
+    introSection.classList.remove("show-elements");
+    gameBodySection.classList.add("show-elements");
   });
 
   playRound();
