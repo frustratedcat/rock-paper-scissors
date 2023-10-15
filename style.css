@@ -5,8 +5,8 @@
 }
 
 body {
-  font-family: "Pixelify Sans", serif;
   height: 100vh;
+  font-family: "Pixelify Sans", serif;
   background-image: linear-gradient(
     to right bottom,
     #868e96,
@@ -17,8 +17,9 @@ body {
 }
 
 .flex-container {
-  height: 90%;
+  height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -78,7 +79,6 @@ body {
 }
 
 .game-body-container {
-  height: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -95,7 +95,7 @@ body {
   font-family: inherit;
   font-size: 24px;
   font-weight: 700;
-  width: 150px;
+  width: 100px;
   margin: 10px;
   padding: 10px;
   color: white;
@@ -141,7 +141,6 @@ body {
 }
 
 .play-again-body-section {
-  height: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -191,10 +190,10 @@ body {
 }
 
 .footer {
-  margin: auto 0 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: auto 0 10px 0;
   font-size: 20px;
   font-weight: 500;
 }
