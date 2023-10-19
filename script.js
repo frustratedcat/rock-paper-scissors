@@ -173,8 +173,12 @@ const chooseWinner = function () {
 
     if (playerScore > computerScore) {
       showWinner.textContent = "You Win!!!";
+      showWinner.classList.add("player-winning");
+      showWinner.classList.remove("computer-winning");
     } else {
       showWinner.textContent = "Computer Wins!!!";
+      showWinner.classList.remove("player-winning");
+      showWinner.classList.add("computer-winning");
     }
 
     playAgain.classList.add("show-elements");
