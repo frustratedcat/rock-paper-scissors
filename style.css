@@ -16,10 +16,10 @@ body {
   font-family: "Pixelify Sans", serif;
   background-image: linear-gradient(
     to right bottom,
-    #e7f5ff,
     #d0ebff,
     #e7f5ff,
-    #d0ebff
+    #d0ebff,
+    #e7f5ff
   );
 }
 
