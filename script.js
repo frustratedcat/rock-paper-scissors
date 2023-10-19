@@ -146,6 +146,22 @@ const playRound = function () {
       }
       playerScoreResult.textContent = playerScore;
       computerScoreResult.textContent = computerScore;
+      if (playerScore > computerScore) {
+        playerScoreResult.classList.add("player-winning");
+        playerScoreResult.classList.remove("computer-winning");
+        computerScoreResult.classList.add("player-winning");
+        computerScoreResult.classList.remove("computer-winning");
+      } else if (computerScore > playerScore) {
+        playerScoreResult.classList.remove("player-winning");
+        playerScoreResult.classList.add("computer-winning");
+        computerScoreResult.classList.remove("player-winning");
+        computerScoreResult.classList.add("computer-winning");
+      } else {
+        playerScoreResult.classList.remove("player-winning");
+        playerScoreResult.classList.remove("computer-winning");
+        computerScoreResult.classList.remove("player-winning");
+        computerScoreResult.classList.remove("computer-winning");
+      }
     });
   }
 };
@@ -186,6 +202,12 @@ const playGameAgain = function () {
         "choose-paper",
         "choose-scissors"
       );
+
+      playerScoreResult.classList.remove("player-winning");
+      playerScoreResult.classList.remove("computer-winning");
+      computerScoreResult.classList.remove("player-winning");
+      computerScoreResult.classList.remove("computer-winning");
+
       if (e.target.matches(".play-buttons")) {
         if (e.target.classList[1] === "play-again-yes") {
           gameBodySection.classList.add("show-elements");
