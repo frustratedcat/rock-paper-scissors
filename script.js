@@ -51,10 +51,16 @@ const showComputerChoice = function (computerSelection) {
 
   if (computerSelection === "rock") {
     computerResult.textContent = "rock";
+    computerResult.classList.add("choose-rock");
+    computerResult.classList.remove("choose-paper", "choose-scissors");
   } else if (computerSelection === "paper") {
     computerResult.textContent = "paper";
+    computerResult.classList.add("choose-paper");
+    computerResult.classList.remove("choose-rock", "choose-scissors");
   } else {
     computerResult.textContent = "scissors";
+    computerResult.classList.add("choose-scissors");
+    computerResult.classList.remove("choose-paper", "choose-rock");
   }
 
   return computerSelection;
@@ -66,10 +72,16 @@ const getPlayerChoice = function () {
       if (e.target.matches(".btn")) {
         if (e.target.classList[1] === "btn-rock") {
           playerResult.textContent = "rock";
+          playerResult.classList.add("choose-rock");
+          playerResult.classList.remove("choose-paper", "choose-scissors");
         } else if (e.target.classList[1] === "btn-paper") {
           playerResult.textContent = "paper";
-        } else {
+          playerResult.classList.remove("choose-rock", "choose-scissors");
+          playerResult.classList.add("choose-paper");
+        } else if (e.target.classList[1] === "btn-scissors") {
           playerResult.textContent = "scissors";
+          playerResult.classList.add("choose-scissors");
+          playerResult.classList.remove("choose-paper", "choose-rock");
         }
       }
     });
@@ -164,6 +176,16 @@ const chooseWinner = function () {
 const playGameAgain = function () {
   for (let i = 0; i < playAgainButtons.length; i++) {
     playAgainButtons[i].addEventListener("click", function (e) {
+      computerResult.classList.remove(
+        "choose-rock",
+        "choose-paper",
+        "choose-scissors"
+      );
+      playerResult.classList.remove(
+        "choose-rock",
+        "choose-paper",
+        "choose-scissors"
+      );
       if (e.target.matches(".play-buttons")) {
         if (e.target.classList[1] === "play-again-yes") {
           gameBodySection.classList.add("show-elements");
