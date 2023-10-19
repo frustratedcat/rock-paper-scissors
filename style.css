@@ -1,3 +1,10 @@
+/* 
+Rock Colors: #2f9e44, #51cf66
+Paper Colors: #1971c2, #339af0
+Scissors Colors: #e8590c, #ff922b
+
+*/
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -99,21 +106,58 @@ body {
   margin: 10px 15px;
   padding: 10px;
   color: white;
-  background-color: #1971c2;
   border: 2px solid white;
   border-radius: 100px;
 }
 
-.btn:hover {
+.rock-style {
+  background-color: #2f9e44;
+}
+
+.paper-style {
+  background-color: #1971c2;
+}
+
+.scissors-style {
+  background-color: #e8590c;
+}
+
+.rock-style:hover {
+  color: white;
+  background-color: #51cf66;
+  border: 2px solid white;
+}
+
+.rock-style:active {
+  color: #51cf66;
+  background-color: white;
+  border: 2px solid #51cf66;
+  transition: 0.2s;
+}
+
+.paper-style:hover {
   color: white;
   background-color: #339af0;
   border: 2px solid white;
 }
 
-.btn:active {
+.paper-style:active {
   color: #1971c2;
   background-color: white;
   border: 2px solid #1971c2;
+  transition: 0.2s;
+}
+
+.scissors-style:hover {
+  color: white;
+  background-color: #ff922b;
+  border: 2px solid white;
+}
+
+.scissors-style:active {
+  color: #e8590c;
+  background-color: white;
+  border: 2px solid #e8590c;
   transition: 0.2s;
 }
 
