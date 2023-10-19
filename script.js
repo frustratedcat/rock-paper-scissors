@@ -50,15 +50,15 @@ const showComputerChoice = function (computerSelection) {
   computerSelection = getComputerChoice();
 
   if (computerSelection === "rock") {
-    computerResult.textContent = "rock";
+    computerResult.innerHTML = '<i class="fa-regular fa-hand-back-fist"></i>';
     computerResult.classList.add("choose-rock");
     computerResult.classList.remove("choose-paper", "choose-scissors");
   } else if (computerSelection === "paper") {
-    computerResult.textContent = "paper";
+    computerResult.innerHTML = '<i class="fa-regular fa-hand"></i>';
     computerResult.classList.add("choose-paper");
     computerResult.classList.remove("choose-rock", "choose-scissors");
   } else {
-    computerResult.textContent = "scissors";
+    computerResult.innerHTML = '<i class= "fa-regular fa-hand-scissors"></i>';
     computerResult.classList.add("choose-scissors");
     computerResult.classList.remove("choose-paper", "choose-rock");
   }
@@ -71,15 +71,17 @@ const getPlayerChoice = function () {
     buttons[i].addEventListener("click", function (e) {
       if (e.target.matches(".btn")) {
         if (e.target.classList[1] === "btn-rock") {
-          playerResult.textContent = "rock";
+          playerResult.innerHTML =
+            '<i class="fa-regular fa-hand-back-fist"></i>';
           playerResult.classList.add("choose-rock");
           playerResult.classList.remove("choose-paper", "choose-scissors");
         } else if (e.target.classList[1] === "btn-paper") {
-          playerResult.textContent = "paper";
+          playerResult.innerHTML = '<i class="fa-regular fa-hand"></i>';
           playerResult.classList.remove("choose-rock", "choose-scissors");
           playerResult.classList.add("choose-paper");
         } else if (e.target.classList[1] === "btn-scissors") {
-          playerResult.textContent = "scissors";
+          playerResult.innerHTML =
+            '<i class= "fa-regular fa-hand-scissors"></i>';
           playerResult.classList.add("choose-scissors");
           playerResult.classList.remove("choose-paper", "choose-rock");
         }
@@ -102,46 +104,58 @@ const playRound = function () {
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function () {
       if (
-        playerResult.textContent === "rock" &&
-        computerResult.textContent === "paper"
+        playerResult.innerHTML ===
+          '<i class="fa-regular fa-hand-back-fist"></i>' &&
+        computerResult.innerHTML === '<i class="fa-regular fa-hand"></i>'
       ) {
         computerScore++;
       } else if (
-        playerResult.textContent === "rock" &&
-        computerResult.textContent === "scissors"
+        playerResult.innerHTML ===
+          '<i class="fa-regular fa-hand-back-fist"></i>' &&
+        computerResult.innerHTML ===
+          '<i class="fa-regular fa-hand-scissors"></i>'
       ) {
         playerScore++;
       } else if (
-        playerResult.textContent === "paper" &&
-        computerResult.textContent === "rock"
+        playerResult.innerHTML === '<i class="fa-regular fa-hand"></i>' &&
+        computerResult.innerHTML ===
+          '<i class="fa-regular fa-hand-back-fist"></i>'
       ) {
         playerScore++;
       } else if (
-        playerResult.textContent === "paper" &&
-        computerResult.textContent === "scissors"
+        playerResult.innerHTML === '<i class="fa-regular fa-hand"></i>' &&
+        computerResult.innerHTML ===
+          '<i class="fa-regular fa-hand-scissors"></i>'
       ) {
         computerScore++;
       } else if (
-        playerResult.textContent === "scissors" &&
-        computerResult.textContent === "rock"
+        playerResult.innerHTML ===
+          '<i class="fa-regular fa-hand-scissors"></i>' &&
+        computerResult.innerHTML ===
+          '<i class="fa-regular fa-hand-back-fist"></i>'
       ) {
         computerScore++;
       } else if (
-        playerResult.textContent === "scissors" &&
-        computerResult.textContent === "paper"
+        playerResult.innerHTML ===
+          '<i class="fa-regular fa-hand-scissors"></i>' &&
+        computerResult.innerHTML === '<i class="fa-regular fa-hand"></i>'
       ) {
         playerScore++;
       } else if (
-        playerResult.textContent === "rock" &&
-        computerResult.textContent === "rock"
+        playerResult.innerHTML ===
+          '<i class="fa-regular fa-hand-back-fist"></i>' &&
+        computerResult.innerHTML ===
+          '<i class="fa-regular fa-hand-back-fist"></i>'
       ) {
       } else if (
-        playerResult.textContent === "paper" &&
-        computerResult.textContent === "paper"
+        playerResult.innerHTML === '<i class="fa-regular fa-hand"></i>' &&
+        computerResult.innerHTML === '<i class="fa-regular fa-hand"></i>'
       ) {
       } else if (
-        playerResult.textContent === "scissors" &&
-        computerResult.textContent === "scissors"
+        playerResult.innerHTML ===
+          '<i class="fa-regular fa-hand-scissors"></i>' &&
+        computerResult.innerHTML ===
+          '<i class="fa-regular fa-hand-scissors"></i>'
       ) {
       }
       playerScoreResult.textContent = playerScore;
