@@ -44,6 +44,19 @@ body {
 .intro-game {
   font-size: 42px;
   font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.h1-rock {
+  color: #51cf66;
+}
+
+.h1-paper {
+  color: #339af0;
+}
+
+.h1-scissors {
+  color: #ff922b;
 }
 
 .intro-rules {
@@ -54,6 +67,25 @@ body {
   margin-bottom: 10px;
   font-size: 30px;
   font-weight: 500;
+}
+
+.last-intro-p {
+  margin-top: 30px;
+}
+
+.p-rock {
+  color: #51cf66;
+  margin: 10px;
+}
+
+.p-paper {
+  color: #339af0;
+  margin: 10px;
+}
+
+.p-scissors {
+  color: #ff922b;
+  margin: 10px;
 }
 
 .intro-button {
