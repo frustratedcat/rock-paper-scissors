@@ -149,17 +149,34 @@ body {
   margin: 0px 0 10px 0;
   font-size: 36px;
   font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.choose-rock {
+.choose-icons::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 400;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.choose-rock::before {
+  content: "\f255";
   color: var(--secondary-rock-color);
 }
 
-.choose-paper {
+.choose-paper::before {
+  content: "\f256";
   color: var(--secondary-paper-color);
 }
 
-.choose-scissors {
+.choose-scissors::before {
+  content: "\f257";
   color: var(--secondary-scissors-color);
 }
 
