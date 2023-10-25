@@ -70,7 +70,7 @@ body {
 }
 
 .intro-rules {
-  margin: 20px 0;
+  margin: 16px 0;
 }
 
 .intro-p {
@@ -88,30 +88,29 @@ body {
 
 .intro-icons::before {
   font-family: "Font Awesome 6 Free";
+  font-size: 30px;
   font-weight: 400;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 16px;
 }
 
 .p-rock::before {
   content: "\f255";
   color: var(--secondary-rock-color);
-  margin: 10px;
 }
 
 .p-paper::before {
   content: "\f256";
   color: var(--secondary-paper-color);
-  margin: 10px;
 }
 
 .p-scissors::before {
   content: "\f257";
   color: var(--secondary-scissors-color);
-  margin: 10px;
 }
 
 .intro-button {
