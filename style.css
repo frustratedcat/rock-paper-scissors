@@ -74,6 +74,9 @@ body {
 }
 
 .intro-p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 10px;
   font-size: 24px;
   font-weight: 500;
@@ -83,17 +86,41 @@ body {
   margin-top: 30px;
 }
 
-.p-rock {
+.p-rock::before {
+  content: "\f255";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 400;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--secondary-rock-color);
   margin: 10px;
 }
 
-.p-paper {
+.p-paper::before {
+  content: "\f256";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 400;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--secondary-paper-color);
   margin: 10px;
 }
 
-.p-scissors {
+.p-scissors::before {
+  content: "\f257";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 400;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--secondary-scissors-color);
   margin: 10px;
 }
