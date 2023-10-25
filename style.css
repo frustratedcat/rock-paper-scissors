@@ -82,29 +82,32 @@ body {
   margin-top: 30px;
 }
 
-.intro-icons::before {
+.icons::before {
   font-family: "Font Awesome 6 Free";
-  font-size: 30px;
   font-weight: 400;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
+}
+
+.intro-icons::before {
+  font-size: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 16px;
 }
 
-.p-rock::before {
+.rock::before {
   content: "\f255";
   color: var(--secondary-rock-color);
 }
 
-.p-paper::before {
+.paper::before {
   content: "\f256";
   color: var(--secondary-paper-color);
 }
 
-.p-scissors::before {
+.scissors::before {
   content: "\f257";
   color: var(--secondary-scissors-color);
 }
@@ -155,29 +158,10 @@ body {
 }
 
 .choose-icons::before {
-  font-family: "Font Awesome 6 Free";
-  font-weight: 400;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 10px;
-}
-
-.choose-rock::before {
-  content: "\f255";
-  color: var(--secondary-rock-color);
-}
-
-.choose-paper::before {
-  content: "\f256";
-  color: var(--secondary-paper-color);
-}
-
-.choose-scissors::before {
-  content: "\f257";
-  color: var(--secondary-scissors-color);
 }
 
 .btn {
