@@ -54,7 +54,7 @@ body {
 .intro-game {
   font-size: 36px;
   font-weight: 700;
-  margin-bottom: 30px;
+  margin-bottom: 16px;
 }
 
 .h1-rock {
@@ -67,10 +67,6 @@ body {
 
 .h1-scissors {
   color: var(--secondary-scissors-color);
-}
-
-.intro-rules {
-  margin: 16px 0;
 }
 
 .intro-p {
