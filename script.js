@@ -70,20 +70,32 @@ const getPlayerChoice = function () {
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function (e) {
       if (e.target.matches(".btn")) {
+        playerResult.innerHTML = "";
+        playerResult.classList.add("icons");
         if (e.target.classList[1] === "btn-rock") {
-          playerResult.innerHTML =
-            '<i class="fa-regular fa-hand-back-fist"></i>';
-          playerResult.classList.add("choose-rock");
-          playerResult.classList.remove("choose-paper", "choose-scissors");
+          playerResult.classList.add("rock", "choose-rock");
+          playerResult.classList.remove(
+            "paper",
+            "scissors",
+            "choose-paper",
+            "choose-scissors"
+          );
         } else if (e.target.classList[1] === "btn-paper") {
-          playerResult.innerHTML = '<i class="fa-regular fa-hand"></i>';
-          playerResult.classList.remove("choose-rock", "choose-scissors");
-          playerResult.classList.add("choose-paper");
+          playerResult.classList.add("paper", "choose-paper");
+          playerResult.classList.remove(
+            "rock",
+            "scissors",
+            "choose-rock",
+            "choose-scissors"
+          );
         } else if (e.target.classList[1] === "btn-scissors") {
-          playerResult.innerHTML =
-            '<i class= "fa-regular fa-hand-scissors"></i>';
-          playerResult.classList.add("choose-scissors");
-          playerResult.classList.remove("choose-paper", "choose-rock");
+          playerResult.classList.add("scissors", "choose-scissors");
+          playerResult.classList.remove(
+            "paper",
+            "rock",
+            "choose-paper",
+            "choose-rock"
+          );
         }
       }
     });
@@ -104,45 +116,45 @@ const playRound = function () {
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function () {
       if (
-        playerResult.classList[1] === "choose-rock" &&
+        playerResult.classList[3] === "choose-rock" &&
         computerResult.classList[1] === "choose-paper"
       ) {
         computerScore++;
       } else if (
-        playerResult.classList[1] === "choose-rock" &&
+        playerResult.classList[3] === "choose-rock" &&
         computerResult.classList[1] === "choose-scissors"
       ) {
         playerScore++;
       } else if (
-        playerResult.classList[1] === "choose-paper" &&
+        playerResult.classList[3] === "choose-paper" &&
         computerResult.classList[1] === "choose-rock"
       ) {
         playerScore++;
       } else if (
-        playerResult.classList[1] === "choose-paper" &&
+        playerResult.classList[3] === "choose-paper" &&
         computerResult.classList[1] === "choose-scissors"
       ) {
         computerScore++;
       } else if (
-        playerResult.classList[1] === "choose-scissors" &&
+        playerResult.classList[3] === "choose-scissors" &&
         computerResult.classList[1] === "choose-rock"
       ) {
         computerScore++;
       } else if (
-        playerResult.classList[1] === "choose-scissors" &&
+        playerResult.classList[3] === "choose-scissors" &&
         computerResult.classList[1] === "choose-paper"
       ) {
         playerScore++;
       } else if (
-        playerResult.classList[1] === "choose-rock" &&
+        playerResult.classList[3] === "choose-rock" &&
         computerResult.classList[1] === "choose-rock"
       ) {
       } else if (
-        playerResult.classList[1] === "choose-paper" &&
+        playerResult.classList[3] === "choose-paper" &&
         computerResult.classList[1] === "choose-paper"
       ) {
       } else if (
-        playerResult.classList[1] === "choose-scissors" &&
+        playerResult.classList[3] === "choose-scissors" &&
         computerResult.classList[1] === "choose-scissors"
       ) {
       }
@@ -199,11 +211,19 @@ const playGameAgain = function () {
   for (let i = 0; i < playAgainButtons.length; i++) {
     playAgainButtons[i].addEventListener("click", function (e) {
       computerResult.classList.remove(
+        "icons",
+        "rock",
+        "paper",
+        "scissors",
         "choose-rock",
         "choose-paper",
         "choose-scissors"
       );
       playerResult.classList.remove(
+        "icons",
+        "rock",
+        "paper",
+        "scissors",
         "choose-rock",
         "choose-paper",
         "choose-scissors"
