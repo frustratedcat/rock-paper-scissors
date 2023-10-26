@@ -48,19 +48,33 @@ const getComputerChoice = function (min = 1, max = 3) {
 
 const showComputerChoice = function (computerSelection) {
   computerSelection = getComputerChoice();
+  computerResult.innerHTML = "";
+  computerResult.classList.add("icons");
 
   if (computerSelection === "rock") {
-    computerResult.innerHTML = '<i class="fa-regular fa-hand-back-fist"></i>';
-    computerResult.classList.add("choose-rock");
-    computerResult.classList.remove("choose-paper", "choose-scissors");
+    computerResult.classList.add("rock", "choose-rock");
+    computerResult.classList.remove(
+      "paper",
+      "scissors",
+      "choose-paper",
+      "choose-scissors"
+    );
   } else if (computerSelection === "paper") {
-    computerResult.innerHTML = '<i class="fa-regular fa-hand"></i>';
-    computerResult.classList.add("choose-paper");
-    computerResult.classList.remove("choose-rock", "choose-scissors");
+    computerResult.classList.add("paper", "choose-paper");
+    computerResult.classList.remove(
+      "rock",
+      "scissors",
+      "choose-rock",
+      "choose-scissors"
+    );
   } else {
-    computerResult.innerHTML = '<i class= "fa-regular fa-hand-scissors"></i>';
-    computerResult.classList.add("choose-scissors");
-    computerResult.classList.remove("choose-paper", "choose-rock");
+    computerResult.classList.add("scissors", "choose-scissors");
+    computerResult.classList.remove(
+      "paper",
+      "rock",
+      "choose-paper",
+      "choose-rock"
+    );
   }
 
   return computerSelection;
@@ -117,45 +131,45 @@ const playRound = function () {
     buttons[i].addEventListener("click", function () {
       if (
         playerResult.classList[3] === "choose-rock" &&
-        computerResult.classList[1] === "choose-paper"
+        computerResult.classList[3] === "choose-paper"
       ) {
         computerScore++;
       } else if (
         playerResult.classList[3] === "choose-rock" &&
-        computerResult.classList[1] === "choose-scissors"
+        computerResult.classList[3] === "choose-scissors"
       ) {
         playerScore++;
       } else if (
         playerResult.classList[3] === "choose-paper" &&
-        computerResult.classList[1] === "choose-rock"
+        computerResult.classList[3] === "choose-rock"
       ) {
         playerScore++;
       } else if (
         playerResult.classList[3] === "choose-paper" &&
-        computerResult.classList[1] === "choose-scissors"
+        computerResult.classList[3] === "choose-scissors"
       ) {
         computerScore++;
       } else if (
         playerResult.classList[3] === "choose-scissors" &&
-        computerResult.classList[1] === "choose-rock"
+        computerResult.classList[3] === "choose-rock"
       ) {
         computerScore++;
       } else if (
         playerResult.classList[3] === "choose-scissors" &&
-        computerResult.classList[1] === "choose-paper"
+        computerResult.classList[3] === "choose-paper"
       ) {
         playerScore++;
       } else if (
         playerResult.classList[3] === "choose-rock" &&
-        computerResult.classList[1] === "choose-rock"
+        computerResult.classList[3] === "choose-rock"
       ) {
       } else if (
         playerResult.classList[3] === "choose-paper" &&
-        computerResult.classList[1] === "choose-paper"
+        computerResult.classList[3] === "choose-paper"
       ) {
       } else if (
         playerResult.classList[3] === "choose-scissors" &&
-        computerResult.classList[1] === "choose-scissors"
+        computerResult.classList[3] === "choose-scissors"
       ) {
       }
       playerScoreResult.textContent = playerScore;
