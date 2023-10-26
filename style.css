@@ -99,16 +99,25 @@ body {
 
 .rock::before {
   content: "\f255";
-  color: var(--secondary-rock-color);
 }
 
 .paper::before {
   content: "\f256";
-  color: var(--secondary-paper-color);
 }
 
 .scissors::before {
   content: "\f257";
+}
+
+.rock-secondary {
+  color: var(--secondary-rock-color);
+}
+
+.paper-secondary {
+  color: var(--secondary-paper-color);
+}
+
+.scissors-secondary {
   color: var(--secondary-scissors-color);
 }
 
