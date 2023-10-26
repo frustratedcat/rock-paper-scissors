@@ -52,28 +52,38 @@ const showComputerChoice = function (computerSelection) {
   computerResult.classList.add("icons");
 
   if (computerSelection === "rock") {
-    computerResult.classList.add("rock", "choose-rock");
+    computerResult.classList.add("rock", "choose-rock", "rock-secondary");
     computerResult.classList.remove(
       "paper",
       "scissors",
       "choose-paper",
-      "choose-scissors"
+      "choose-scissors",
+      "paper-secondary",
+      "scissors-secondary"
     );
   } else if (computerSelection === "paper") {
-    computerResult.classList.add("paper", "choose-paper");
+    computerResult.classList.add("paper", "choose-paper", "paper-secondary");
     computerResult.classList.remove(
       "rock",
       "scissors",
       "choose-rock",
-      "choose-scissors"
+      "choose-scissors",
+      "rock-secondary",
+      "scissors-secondary"
     );
   } else {
-    computerResult.classList.add("scissors", "choose-scissors");
+    computerResult.classList.add(
+      "scissors",
+      "choose-scissors",
+      "scissors-secondary"
+    );
     computerResult.classList.remove(
       "paper",
       "rock",
       "choose-paper",
-      "choose-rock"
+      "choose-rock",
+      "paper-secondary",
+      "rock-secondary"
     );
   }
 
@@ -87,28 +97,42 @@ const getPlayerChoice = function () {
         playerResult.innerHTML = "";
         playerResult.classList.add("icons");
         if (e.target.classList[1] === "btn-rock") {
-          playerResult.classList.add("rock", "choose-rock");
+          playerResult.classList.add("rock", "choose-rock", "rock-secondary");
           playerResult.classList.remove(
             "paper",
             "scissors",
             "choose-paper",
-            "choose-scissors"
+            "choose-scissors",
+            "paper-secondary",
+            "scissors-secondary"
           );
         } else if (e.target.classList[1] === "btn-paper") {
-          playerResult.classList.add("paper", "choose-paper");
+          playerResult.classList.add(
+            "paper",
+            "choose-paper",
+            "paper-secondary"
+          );
           playerResult.classList.remove(
             "rock",
             "scissors",
             "choose-rock",
-            "choose-scissors"
+            "choose-scissors",
+            "rock-secondary",
+            "scissors-secondary"
           );
         } else if (e.target.classList[1] === "btn-scissors") {
-          playerResult.classList.add("scissors", "choose-scissors");
+          playerResult.classList.add(
+            "scissors",
+            "choose-scissors",
+            "scissors-secondary"
+          );
           playerResult.classList.remove(
             "paper",
             "rock",
             "choose-paper",
-            "choose-rock"
+            "choose-rock",
+            "paper-secondary",
+            "rock-secondary"
           );
         }
       }
@@ -231,7 +255,10 @@ const playGameAgain = function () {
         "scissors",
         "choose-rock",
         "choose-paper",
-        "choose-scissors"
+        "choose-scissors",
+        "rock-secondary",
+        "paper-secondary",
+        "scissors-secondary"
       );
       playerResult.classList.remove(
         "icons",
@@ -240,7 +267,10 @@ const playGameAgain = function () {
         "scissors",
         "choose-rock",
         "choose-paper",
-        "choose-scissors"
+        "choose-scissors",
+        "rock-secondary",
+        "paper-secondary",
+        "scissors-secondary"
       );
 
       playerScoreResult.classList.remove("player-winning");
