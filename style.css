@@ -173,10 +173,9 @@ body {
 }
 
 .btn {
-  font-family: inherit;
-  font-size: 18px;
-  font-weight: 700;
-  width: 50px;
+  font-size: 30px;
+  width: 60px;
+  height: 60px;
   margin: 10px 15px;
   padding: 10px;
   color: var(--secondary-button-color);
@@ -184,51 +183,57 @@ body {
   border-radius: 100px;
 }
 
-.rock-style {
+.btn-icons::before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rock-primary {
   background-color: var(--primary-rock-color);
 }
 
-.paper-style {
+.paper-primary {
   background-color: var(--primary-paper-color);
 }
 
-.scissors-style {
+.scissors-primary {
   background-color: var(--primary-scissors-color);
 }
 
-.rock-style:hover {
+.rock-primary:hover {
   color: var(--secondary-button-color);
   background-color: var(--secondary-rock-color);
   border: 2px solid var(--secondary-button-color);
 }
 
-.rock-style:active {
+.rock-primary:active {
   color: var(--primary-rock-color);
   background-color: var(--secondary-button-color);
   border: 2px solid var(--primary-rock-color);
   transition: 0.2s;
 }
 
-.paper-style:hover {
+.paper-primary:hover {
   color: var(--secondary-button-color);
   background-color: var(--secondary-paper-color);
   border: 2px solid var(--secondary-button-color);
 }
 
-.paper-style:active {
+.paper-primary:active {
   color: var(--primary-paper-color);
   background-color: var(--secondary-button-color);
   border: 2px solid var(--primary-paper-color);
   transition: 0.2s;
 }
 
-.scissors-style:hover {
+.scissors-primary:hover {
   color: var(--secondary-button-color);
   background-color: var(--secondary-scissors-color);
   border: 2px solid var(--secondary-button-color);
 }
 
-.scissors-style:active {
+.scissors-primary:active {
   color: var(--primary-scissors-color);
   background-color: var(--secondary-button-color);
   border: 2px solid var(--primary-scissors-color);
